@@ -1,15 +1,8 @@
 import numpy as np  # linear algebra
 import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
-import seaborn as sns
-import matplotlib.pyplot as plt
-import plotly.express as px
-import missingno as msno
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-import warnings
 import scipy.stats as stats
 from sklearn.preprocessing import MinMaxScaler
-
+import matplotlib.pyplot as plt
 
 import os
 
