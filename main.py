@@ -12,7 +12,7 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
 
-esport = pd.read_csv('ESport_Earnings.csv', on_bad_lines="skip",
+esport = pd.read_csv('Auto_Sales_data.csv', on_bad_lines="skip",
                      engine="python", sep=',', encoding='latin-1')
 
 ''''
@@ -48,6 +48,17 @@ plt.title('Top 10 Games by Professional Player Count All Time');
 
 plt.show()
 '''''
+# normalize the exponential data with boxcox
+normalized_data = stats.boxcox(esport['MSRP'])
+
+# plot both together to compare
+fig, ax=plt.subplots(1,2)
+sns.distplot(esport['MSRP'], ax=ax[0])
+ax[0].set_title("Original Data")
+sns.distplot(normalized_data[0], ax=ax[1])
+ax[1].set_title("Normalized data")
+plt.show()\
+
 # Generate some random data for demonstration
 data = df = esport['IdNo']
 
@@ -65,7 +76,7 @@ axes[1].set_title('Normalized Data')
 
 plt.show()
 # Generate so
-
+'''''''''
 # Generate some random data for demonstration
 data = df = esport['TotalMoney']
 
@@ -151,7 +162,7 @@ axes[1].set_title('Normalized Data')
 plt.show()
 
 
-'''''
+
 X_minmax = scaler.fit_transform(esport.select_dtypes(include='number'))
 print(X_minmax)
 
